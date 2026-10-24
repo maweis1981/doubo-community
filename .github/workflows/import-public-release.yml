@@ -1,0 +1,43 @@
+name: Import public release
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_repository:
+        description: Public source repository (owner/name)
+        required: true
+        type: string
+      source_tag:
+        description: Published Android or Windows release tag
+        required: true
+        type: string
+      expected_sha256:
+        description: Independently verified package SHA-256
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-release-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate import logic
+        run: python3 -B -m unittest discover -s .github/scripts -p 'test_*.py'
+      - name: Import and verify published assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_REPOSITORY: ${{ inputs.source_repository }}
+          SOURCE_TAG: ${{ inputs.source_tag }}
+          EXPECTED_SHA256: ${{ inputs.expected_sha256 }}
+        run: python3 .github/scripts/import_public_release.py

@@ -1,0 +1,24 @@
+name: Feature request
+description: Suggest a concrete improvement to Doubo.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: "For general questions and open-ended ideas, use Discussions. This form is for a specific product improvement. Do not include private information."
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested behavior
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Relevant platform

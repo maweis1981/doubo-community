@@ -1,0 +1,54 @@
+name: Bug report
+description: Report a reproducible problem in Doubo.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "This report is public. Do not include playlist URLs, passwords, access tokens, payment information or unredacted logs. Setup questions belong in Discussions."
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform and download channel
+      options:
+        - Android — Google Play
+        - Android — website APK
+        - Windows — Microsoft Store
+        - Windows — portable ZIP
+        - iPhone or iPad — TestFlight beta
+        - Mac — TestFlight beta
+        - Web browser
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: App version and operating system
+      placeholder: "Example: Doubo 0.1.0, Android 14"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Use a harmless public test example if a playlist is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Redacted screenshots or additional context
+      description: Remove personal information and secrets before posting.

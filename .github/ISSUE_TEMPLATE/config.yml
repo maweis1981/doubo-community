@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and official FAQ
+    url: https://github.com/maweis1981/doubo-community/discussions
+    about: Ask setup questions and read maintainer-written answers.
+  - name: Private security report
+    url: https://github.com/maweis1981/doubo-community/security/advisories/new
+    about: Report a security vulnerability without posting sensitive details publicly.

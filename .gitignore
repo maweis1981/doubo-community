@@ -1,0 +1,9 @@
+.env
+.env.*
+internal/
+docs/plans/
+*.pem
+*.key
+*.apk
+*.aab
+*.zip
